@@ -1,0 +1,384 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>remmi</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="types.html"><strong aria-hidden="true">2.</strong> Types of Recomedation Systems</a></li><li class="chapter-item expanded "><a href="dataset/overview.html"><strong aria-hidden="true">3.</strong> Dataset Overview</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="dataset/tmdb.html"><strong aria-hidden="true">3.1.</strong> TMDB Dataset</a></li><li class="chapter-item expanded "><a href="dataset/movies.html"><strong aria-hidden="true">3.2.</strong> Movies Dataset</a></li></ol></li><li class="chapter-item expanded "><a href="simple.html"><strong aria-hidden="true">4.</strong> Simple Recomendation System</a></li><li class="chapter-item expanded "><a href="content.html"><strong aria-hidden="true">5.</strong> Content Based Filtering</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="types/plot.html"><strong aria-hidden="true">5.1.</strong> Plot Descriptor Model</a></li><li class="chapter-item expanded "><a href="types/keyword.html"><strong aria-hidden="true">5.2.</strong> Keyword Model</a></li></ol></li><li class="chapter-item expanded "><a href="colab.html"><strong aria-hidden="true">6.</strong> Collaborative Filtering</a></li><li class="chapter-item expanded "><a href="end.html"><strong aria-hidden="true">7.</strong> End</a></li><li class="chapter-item expanded "><a href="license.html"><strong aria-hidden="true">8.</strong> LICENSE</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">remmi</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="movie-recomendations"><a class="header" href="#movie-recomendations">Movie Recomendations</a></h1>
+<h2 id="what-is-a-recommender-system"><a class="header" href="#what-is-a-recommender-system">What is a recommender system?</a></h2>
+<p>Recommender systems are among the most popular applications of data science today. They are used to predict the &quot;rating&quot; or &quot;preference&quot; that a user would give to an item. Almost every major tech company has applied them in some form. Amazon uses it to suggest products to customers, YouTube uses it to decide which video to play next on autoplay, and Facebook uses it to recommend pages to like and people to follow.</p>
+<p>There are also popular recommender systems for domains like restaurants, movies, and online dating. Recommender systems have also been developed to explore research articles and experts, collaborators, and financial services. YouTube uses the recommendation system at a large scale to suggest you videos based on your history. For example, if you watch a lot of educational videos, it would suggest those types of videos.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="recommender-systems-can-be-classified-into-3-types"><a class="header" href="#recommender-systems-can-be-classified-into-3-types">Recommender systems can be classified into 3 types</a></h1>
+<ul>
+<li>
+<p><strong>Simple recommenders</strong>: offer generalized recommendations to every user, based on movie popularity and/or genre. The basic idea behind this system is that movies that are more popular and critically acclaimed will have a higher probability of being liked by the average audience. An example could be IMDB Top 250.</p>
+</li>
+<li>
+<p><strong>Content-based recommenders</strong>: suggest similar items based on a particular item. This system uses item metadata, such as genre, director, description, actors, etc. for movies, to make these recommendations. The general idea behind these recommender systems is that if a person likes a particular item, he or she will also like an item that is similar to it. And to recommend that, it will make use of the user's past item metadata. A good example could be YouTube, where based on your history, it suggests you new videos that you could potentially watch.</p>
+</li>
+<li>
+<p><strong>Collaborative filtering engines</strong>: these systems are widely used, and they try to predict the rating or preference that a user would give an item-based on past ratings and preferences of other users. Collaborative filters do not require item metadata like its content-based counterparts.</p>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="dataset-overview"><a class="header" href="#dataset-overview">Dataset Overview</a></h1>
+<p>We are using two datasets:</p>
+<ol>
+<li>TMDB 5000 Movie Dataset</li>
+<li>The Movies Dataset</li>
+</ol>
+<h2 id="the-full-datasets-can-be-found-over"><a class="header" href="#the-full-datasets-can-be-found-over">The Full Datasets can be found over</a></h2>
+<p>For TMDB Dataset
+<a href="https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata">here</a></p>
+<p>For Movies Dataset
+<a href="https://grouplens.org/datasets/movielens/latest/">here</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tmdb-dataset"><a class="header" href="#tmdb-dataset">TMDB Dataset</a></h1>
+<p><em>tmdb_5000_credits.csv</em>: contains the credits for the movies.</p>
+<pre><code>The first file contains the following features:-
+
+&gt; **movie_id** - A unique identifier for each movie.
+&gt; **cast** - The name of lead and supporting actors.
+&gt; **crew** - The name of Director, Editor, Composer, Writer etc.
+</code></pre>
+<ul>
+<li>
+<p><em>tmdb_5000_movies.csv</em>: contains the metadata for the movies.</p>
+<p>The second file has the following features:-</p>
+<blockquote>
+<p><strong>budget</strong> - The budget in which the movie was made.
+<strong>genre</strong> - The genre of the movie, Action, Comedy ,Thriller etc.
+<strong>homepage</strong> - A link to the homepage of the movie.
+<strong>id</strong> - This is infact the movie_id as in the first dataset.
+<strong>keywords</strong> - The keywords or tags related to the movie.
+<strong>original_language</strong> - The language in which the movie was made.
+<strong>original_title</strong> - The title of the movie before translation or adaptation.
+<strong>overview</strong> - A brief description of the movie.
+<strong>popularity</strong> - A numeric quantity specifying the movie popularity.
+<strong>production_companies</strong> - The production house of the movie.
+<strong>production_countries</strong> - The country in which it was produced.
+<strong>release_date</strong> - The date on which it was released.
+<strong>revenue</strong> - The worldwide revenue generated by the movie.
+<strong>runtime</strong> - The running time of the movie in minutes.
+<strong>status</strong> - &quot;Released&quot; or &quot;Rumored&quot;.
+<strong>tagline</strong> - Movie's tagline.
+<strong>title</strong> - Title of the movie.
+<strong>vote_average</strong> - average ratings the movie recieved.
+<strong>vote_count</strong> - the count of votes recieved.</p>
+</blockquote>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="the-movies-dataset"><a class="header" href="#the-movies-dataset">The Movies Dataset</a></h1>
+<p>Which contain the following files:-</p>
+<blockquote>
+<p><strong>movies_metadata.csv</strong>: The main Movies Metadata file.
+Contains information on 45,000 movies featured in
+the Full MovieLens dataset. Features include posters,
+backdrops, budget, revenue, release dates,
+languages, production countries and companies.
+<strong>keywords.csv</strong>: Contains the movie plot keywords for our
+MovieLens movies. Available in the form of
+a stringified JSON Object.
+<strong>credits.csv</strong>: Consists of Cast and Crew Information
+for all our movies. Available in the form of
+a stringified JSON Object.
+<strong>links.csv</strong>: The file that contains the TMDB and IMDB IDs
+of all the movies featured in the Full MovieLens dataset.
+<strong>links_small.csv</strong>: Contains the TMDB and IMDB IDs of
+a small subset of 9,000 movies of the Full Dataset.
+<strong>ratings_small.csv</strong>: The subset of 100,000 ratings from 700 users on 9,000 movies.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="simple-recommenders"><a class="header" href="#simple-recommenders">Simple Recommenders</a></h1>
+<p>Simple recommenders are basic systems that recommend the top items based on a certain metric or score. In this section, you will build a simplified clone of IMDB Top 250 Movies using metadata collected from IMDB.</p>
+<pre><code>Note: The IMDB Dataset was removed due to a DMCA violation. We are now using the TMDb dataset.
+</code></pre>
+<h2 id="idea-to-solve-the-problem"><a class="header" href="#idea-to-solve-the-problem"><strong>Idea to Solve the Problem</strong></a></h2>
+<p>One of the most basic metrics one can think of is the ranking to decide which top 250 movies are based on their respective ratings.</p>
+<p>However, using a rating as a metric has a few caveats:</p>
+<ul>
+<li>
+<p>It does not take into consideration the popularity of a movie. Therefore, a movie with a rating of 9 from 10 voters will be considered 'better' than a movie with a rating of 8.9 from 10,000 voters.</p>
+</li>
+<li>
+<p>This metric will also tend to favor movies with a smaller number of voters with skewed and/or extremely high ratings. As the number of voters increases, the rating of a movie regularizes and approaches towards a value that is reflective of the movie's quality and gives the user a much better idea as to which movie they should choose. While it is difficult to discern the quality of a movie with extremely few voters, you might have to consider external sources to conclude.</p>
+</li>
+</ul>
+<p>Before getting started with this  -</p>
+<ul>
+<li>we need a metric to score or rate movie</li>
+<li>Calculate the score for every movie</li>
+<li>Sort the scores and recommend the best rated movie to the users.</li>
+</ul>
+<p>We can use the average ratings of the movie as the score but using this won't be fair enough since a movie with 8.9 average rating and only 3 votes cannot be considered better than the movie with 7.8 as as average rating but 40 votes.
+So, I'll be using IMDB's weighted rating (wr) which is given as :-</p>
+<h2 id="weighted-average-rating"><a class="header" href="#weighted-average-rating"><strong>Weighted Average Rating</strong></a></h2>
+<p>We can use the Weightied Rating (WR) as a metric to rank our movies. The WR is a combination of the following:</p>
+<p><img src=".%5Cimages%5Cweighted_rating.png" alt="" /></p>
+<p>where,</p>
+<ul>
+<li>v is the number of votes for the movie</li>
+<li>m is the minimum votes required to be listed in the chart</li>
+<li>R is the average rating of the movie</li>
+<li>C is the mean vote across the whole report</li>
+</ul>
+<p>We will use cutoff m as the 90th percentile.
+In other words, for a movie to be featured in the charts, it must have more votes than at least 90% of the movies on the list.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="content-based-filtering"><a class="header" href="#content-based-filtering">Content Based Filtering</a></h1>
+<p>In this recommender system the content of the movie (overview, cast, crew, keyword, tagline etc) is used to find its similarity with other movies. Then the movies that are most likely to be similar are recommended.</p>
+<p><img src="https://image.ibb.co/f6mDXU/conten.png" alt="" /></p>
+<ol>
+<li>Plot Based</li>
+<li>Keyword Based</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="plot-description-based-recommender"><a class="header" href="#plot-description-based-recommender">Plot description based Recommender</a></h1>
+<p>We will compute pairwise similarity scores for all movies based on their plot descriptions and recommend movies based on that similarity score. The plot description is given in the <strong>overview</strong> feature of our dataset.</p>
+<p>With NLP Natural Language Processing, we have to convert the word vector of each overview
+Then compute Term Frequency-Inverse Document Frequency (TF-IDF) vectors for each overview.</p>
+<p>Term Frequency is the relative frequency of a word in a document and is given as
+<strong>(term instances/total instances)</strong>.</p>
+<p>Inverse Document Frequency is the relative count of documents containing the term and is given as
+<strong>log(number of documents/documents with term)</strong></p>
+<p>The overall importance of each word to the documents in which they appear is equal to <strong>TF * IDF</strong></p>
+<p>This will give us a matrix where each column represents a word in the overview vocabulary (all the words that appear in at least one document) and each row represents a movie, as before.This is done to reduce the importance of words that occur frequently in plot overviews and therefore, their significance in computing the final similarity score.</p>
+<p>We will just use scikit-learn module's built-in TfIdfVectorizer class that produces the TF-IDF matrix in a couple of lines.</p>
+<p>We see that over 20,000 different words were used to describe the 4800 movies in our dataset.</p>
+<p>With this matrix in hand, we can now compute a similarity score. There are several candidates for this; such as the euclidean, the Pearson and the <a href="https://en.wikipedia.org/wiki/Cosine_similarity">cosine similarity scores</a>. There is no right answer to which score is the best. Different scores work well in different scenarios and it is often a good idea to experiment with different metrics.</p>
+<p>We will be using the cosine similarity to calculate a numeric quantity that denotes the similarity between two movies. We use the cosine similarity score since it is independent of magnitude and is relatively easy and fast to calculate. Mathematically, it is defined as follows:</p>
+<p>Mathematically, it is defined as follows:</p>
+<p><img src="types/./images/cosine_similarity.jpg" alt="" /></p>
+<h2 id="result"><a class="header" href="#result">Result</a></h2>
+<p>While our system has done a decent job of finding movies with similar plot descriptions, the quality of recommendations is not that great.</p>
+<p><em>&quot;The Dark Knight Rises&quot;</em> returns all Batman movies while it is more likely that the people who liked that movie are more inclined to enjoy other Christopher Nolan movies. This is something that cannot be captured by the present system.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="credits-genres-and-keywords-based-recommender"><a class="header" href="#credits-genres-and-keywords-based-recommender"><strong>Credits, Genres and Keywords Based Recommender</strong></a></h1>
+<p>It goes without saying that the quality of our recommender would be increased with the usage of better metadata. That is exactly what we are going to do in this section. We are going to build a recommender based on the following metadata: the 3 top actors, the director, related genres and the movie plot keywords.</p>
+<p>From the cast, crew and keywords features, we need to extract the three most important actors, the director and the keywords associated with that movie. Right now, our data is present in the form of &quot;stringified&quot; lists , we need to convert it into a safe and usable structure</p>
+<h2 id="result-1"><a class="header" href="#result-1">Result</a></h2>
+<p>We see that our recommender has been successful in capturing more information due to more metadata and has given us (arguably) better recommendations. It is more likely that Marvels or DC comics fans will like the movies of the same production house. Therefore, to our features above we can add <em>production_company</em> .
+We can also increase the weight of the director , by adding the feature multiple times in the soup.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="collaborative-filtering"><a class="header" href="#collaborative-filtering"><strong>Collaborative Filtering</strong></a></h1>
+<p>Our content based engine suffers from some severe limitations. It is only capable of suggesting movies which are close to a certain movie. That is, it is not capable of capturing tastes and providing recommendations across genres.</p>
+<p>Also, the engine that we built is not really personal in that it doesn't capture the personal tastes and biases of a user. Anyone querying our engine for recommendations based on a movie will receive the same recommendations for that movie, regardless of who they are.</p>
+<p>Therefore, in this section, we will use a technique called Collaborative Filtering to make recommendations to Movie Watchers.
+It is basically of two types:-</p>
+<ul>
+<li><strong>User based filtering</strong>-  These systems recommend products to a user that similar users have liked. For measuring the similarity between two users we can either use pearson correlation or cosine similarity.
+This filtering technique can be illustrated with an example. In the following matrixes, each row represents a user, while the columns correspond to different movies except the last one which records the similarity between that user and the target user. Each cell represents the rating that the user gives to that movie. Assume user E is the target.
+<img src="https://cdn-images-1.medium.com/max/1000/1*9NBFo4AUQABKfoUOpE3F8Q.png" alt="" /></li>
+</ul>
+<p>Since user A and F do not share any movie ratings in common with user E, their similarities with user E are not defined in Pearson Correlation. Therefore, we only need to consider user B, C, and D. Based on Pearson Correlation, we can compute the following similarity.
+<img src="https://cdn-images-1.medium.com/max/1000/1*jZIMJzKM1hKTFftHfcSxRw.png" alt="" /></p>
+<p>From the above table we can see that user D is very different from user E as the Pearson Correlation between them is negative. He rated Me Before You higher than his rating average, while user E did the opposite. Now, we can start to fill in the blank for the movies that user E has not rated based on other users.
+<img src="https://cdn-images-1.medium.com/max/1000/1*9TC6BrfxYttJwiATFAIFBg.png" alt="" /></p>
+<p>Although computing user-based CF is very simple, it suffers from several problems. One main issue is that users’ preference can change over time. It indicates that precomputing the matrix based on their neighboring users may lead to bad performance. To tackle this problem, we can apply item-based CF.</p>
+<ul>
+<li><strong>Item Based Collaborative Filtering</strong> - Instead of measuring the similarity between users, the item-based CF recommends items based on their similarity with the items that the target user rated. Likewise, the similarity can be computed with Pearson Correlation or Cosine Similarity. The major difference is that, with item-based collaborative filtering, we fill in the blank vertically, as oppose to the horizontal manner that user-based CF does. The following table shows how to do so for the movie Me Before You.
+<img src="https://cdn-images-1.medium.com/max/1000/1*LqFnWb-cm92HoMYBL840Ew.png" alt="" /></li>
+</ul>
+<p>It successfully avoids the problem posed by dynamic user preference as item-based CF is more static. However, several problems remain for this method. First, the main issue is <strong>scalability</strong>. The computation grows with both the customer and the product. The worst case complexity is O(mn) with m users and n items. In addition, <strong>sparsity</strong> is another concern. Take a look at the above table again. Although there is only one user that rated both Matrix and Titanic rated, the similarity between them is 1. In extreme cases, we can have millions of users and the similarity between two fairly different movies could be very high simply because they have similar rank for the only user who ranked them both.</p>
+<h2 id="single-value-decomposition"><a class="header" href="#single-value-decomposition"><strong>Single Value Decomposition</strong></a></h2>
+<p>One way to handle the scalability and sparsity issue created by CF is to leverage a <strong>latent factor model</strong> to capture the similarity between users and items. Essentially, we want to turn the recommendation problem into an optimization problem. We can view it as how good we are in predicting the rating for items given a user. One common metric is Root Mean Square Error (RMSE). <strong>The lower the RMSE, the better the performance</strong>.</p>
+<p>Now talking about latent factor you might be wondering what is it ?It is a broad idea which describes a property or concept that a user or an item have. For instance, for music, latent factor can refer to the genre that the music belongs to. SVD decreases the dimension of the utility matrix by extracting its latent factors. Essentially, we map each user and each item into a latent space with dimension r. Therefore, it helps us better understand the relationship between users and items as they become directly comparable. The below figure illustrates this idea.</p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*GUw90kG2ltTd2k_iv3Vo0Q.png" alt="" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="check-out-the-web-app-gui"><a class="header" href="#check-out-the-web-app-gui">Check Out the Web APP GUI</a></h1>
+<p>click on the owl ➡️ <strong>ORIGINAL</strong></p>
+<p><a title="link to deployeyd app" href="https://remmi.herokuapp.com/"><img src="https://i.redd.it/x2g5zvb396h41.jpg" height=100 style="float:right;padding: 0px 250px;"/>
+</a></br></br></br></br></br></p>
+<p>click on the owl ➡️ <strong>BACKUP</strong>
+<a title="link2 to deployeyd app" href="https://eshanatnight-remmi-on-the-web-app-dcuhpp.streamlitapp.com/"><img src="https://i.redd.it/x2g5zvb396h41.jpg" height=100 style="float:right;padding: 0px 250px;"/>
+</a></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="license"><a class="header" href="#license">LICENSE</a></h1>
+<p>MIT License</p>
+<p>Copyright (c) 2022 Eshan</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
+            const socket = new WebSocket(wsAddress);
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+    </body>
+</html>
