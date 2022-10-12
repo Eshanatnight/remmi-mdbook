@@ -25,7 +25,7 @@ We will be using the cosine similarity to calculate a numeric quantity that deno
 
 Mathematically, it is defined as follows:
 
-![](./images/cosine_similarity.jpg)
+![cosine-similarity](../images/cosine_similarity.jpg)
 
 ## Result
 
