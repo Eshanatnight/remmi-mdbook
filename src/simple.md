@@ -27,7 +27,7 @@ So, I'll be using IMDB's weighted rating (wr) which is given as :-
 
 We can use the Weightied Rating (WR) as a metric to rank our movies. The WR is a combination of the following:
 
-![](.\images\weighted_rating.png)
+![weighted-rating](.\images\weighted_rating.png)
 
 where,
 
