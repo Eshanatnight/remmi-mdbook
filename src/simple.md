@@ -2,7 +2,7 @@
 
 Simple recommenders are basic systems that recommend the top items based on a certain metric or score. In this section, you will build a simplified clone of IMDB Top 250 Movies using metadata collected from IMDB.
 
-    Note: The IMDB Dataset was removed due to a DMCA violation. We are now using the TMDb dataset.
+> Note: The IMDB Dataset was removed due to a DMCA violation. We are now using the TMDb dataset.
 
 ## **Idea to Solve the Problem**
 
@@ -27,7 +27,7 @@ So, I'll be using IMDB's weighted rating (wr) which is given as :-
 
 We can use the Weightied Rating (WR) as a metric to rank our movies. The WR is a combination of the following:
 
-![weighted-rating](.\images\weighted_rating.png)
+![weighted-rating](../images/weighted_rating.png)
 
 where,
 
