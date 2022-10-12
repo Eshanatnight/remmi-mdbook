@@ -4,7 +4,10 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>TMDB Dataset - remmi</title>
+
+
         <!-- Custom HTML head -->
+        
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,15 +19,20 @@
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
         <link rel="stylesheet" href="../css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="../fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
         <link rel="stylesheet" href="../tomorrow-night.css">
         <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../.\theme\catppuccin.css">
+        <link rel="stylesheet" href="../.\theme\catppuccin-highlight.css">
+
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -83,7 +91,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -98,6 +106,10 @@
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="latte">Latte</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="frappe">Frappé</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="macchiato">Macchiato</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mocha">Mocha</button></li>
                         </ul>
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
@@ -110,6 +122,7 @@
                         <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -123,6 +136,7 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
@@ -135,37 +149,39 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="tmdb-dataset"><a class="header" href="#tmdb-dataset">TMDB Dataset</a></h1>
-<p><em>tmdb_5000_credits.csv</em>: contains the credits for the movies.</p>
-<pre><code>The first file contains the following features:-
-
-&gt; **movie_id** - A unique identifier for each movie.
-&gt; **cast** - The name of lead and supporting actors.
-&gt; **crew** - The name of Director, Editor, Composer, Writer etc.
-</code></pre>
 <ul>
+<li>
+<p><em>tmdb_5000_credits.csv</em>: contains the credits for the movies.</p>
+<p>The first file contains the following features:-</p>
+<blockquote>
+<p><strong>movie_id</strong> - A unique identifier for each movie.</p>
+<p><strong>cast</strong> - The name of lead and supporting actors.</p>
+<p><strong>crew</strong> - The name of Director, Editor, Composer, Writer etc.</p>
+</blockquote>
+</li>
 <li>
 <p><em>tmdb_5000_movies.csv</em>: contains the metadata for the movies.</p>
 <p>The second file has the following features:-</p>
 <blockquote>
-<p><strong>budget</strong> - The budget in which the movie was made.
-<strong>genre</strong> - The genre of the movie, Action, Comedy ,Thriller etc.
-<strong>homepage</strong> - A link to the homepage of the movie.
-<strong>id</strong> - This is infact the movie_id as in the first dataset.
-<strong>keywords</strong> - The keywords or tags related to the movie.
-<strong>original_language</strong> - The language in which the movie was made.
-<strong>original_title</strong> - The title of the movie before translation or adaptation.
-<strong>overview</strong> - A brief description of the movie.
-<strong>popularity</strong> - A numeric quantity specifying the movie popularity.
-<strong>production_companies</strong> - The production house of the movie.
-<strong>production_countries</strong> - The country in which it was produced.
-<strong>release_date</strong> - The date on which it was released.
-<strong>revenue</strong> - The worldwide revenue generated by the movie.
-<strong>runtime</strong> - The running time of the movie in minutes.
-<strong>status</strong> - &quot;Released&quot; or &quot;Rumored&quot;.
-<strong>tagline</strong> - Movie's tagline.
-<strong>title</strong> - Title of the movie.
-<strong>vote_average</strong> - average ratings the movie recieved.
-<strong>vote_count</strong> - the count of votes recieved.</p>
+<p><strong>budget</strong> - The budget in which the movie was made.</p>
+<p><strong>genre</strong> - The genre of the movie, Action, Comedy ,Thriller etc.</p>
+<p><strong>homepage</strong> - A link to the homepage of the movie.</p>
+<p><strong>id</strong> - This is infact the movie_id as in the first dataset.</p>
+<p><strong>keywords</strong> - The keywords or tags related to the movie.</p>
+<p><strong>original_language</strong> - The language in which the movie was made.</p>
+<p><strong>original_title</strong> - The title of the movie before translation or adaptation.</p>
+<p><strong>overview</strong> - A brief description of the movie.</p>
+<p><strong>popularity</strong> - A numeric quantity specifying the movie popularity.</p>
+<p><strong>production_companies</strong> - The production house of the movie.</p>
+<p><strong>production_countries</strong> - The country in which it was produced.</p>
+<p><strong>release_date</strong> - The date on which it was released.</p>
+<p><strong>revenue</strong> - The worldwide revenue generated by the movie.</p>
+<p><strong>runtime</strong> - The running time of the movie in minutes.</p>
+<p><strong>status</strong> - &quot;Released&quot; or &quot;Rumored&quot;.</p>
+<p><strong>tagline</strong> - Movie's tagline.</p>
+<p><strong>title</strong> - Title of the movie.</p>
+<p><strong>vote_average</strong> - average ratings the movie recieved.</p>
+<p><strong>vote_count</strong> - the count of votes recieved.</p>
 </blockquote>
 </li>
 </ul>
@@ -177,9 +193,11 @@
                             <a rel="prev" href="../dataset/overview.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
+
                             <a rel="next" href="../dataset/movies.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
@@ -189,6 +207,7 @@
                     <a rel="prev" href="../dataset/overview.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
+
                     <a rel="next" href="../dataset/movies.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
@@ -212,16 +231,24 @@
                 socket.close();
             }
         </script>
+
+
+
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
+
+
         <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
         <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
+
+
     </body>
 </html>

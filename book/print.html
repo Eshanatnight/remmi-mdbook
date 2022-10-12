@@ -5,7 +5,10 @@
         <meta charset="UTF-8">
         <title>remmi</title>
         <meta name="robots" content="noindex" />
+
+
         <!-- Custom HTML head -->
+        
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,15 +20,20 @@
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
         <link rel="stylesheet" href="css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href=".\theme\catppuccin.css">
+        <link rel="stylesheet" href=".\theme\catppuccin-highlight.css">
+
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -84,7 +92,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -99,6 +107,10 @@
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="latte">Latte</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="frappe">Frappé</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="macchiato">Macchiato</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mocha">Mocha</button></li>
                         </ul>
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
@@ -111,6 +123,7 @@
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -124,6 +137,7 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
@@ -157,43 +171,51 @@
 <li>TMDB 5000 Movie Dataset</li>
 <li>The Movies Dataset</li>
 </ol>
+<hr />
 <h2 id="the-full-datasets-can-be-found-over"><a class="header" href="#the-full-datasets-can-be-found-over">The Full Datasets can be found over</a></h2>
-<p>For TMDB Dataset
-<a href="https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata">here</a></p>
-<p>For Movies Dataset
-<a href="https://grouplens.org/datasets/movielens/latest/">here</a>.</p>
+<h3 id="for-tmdb-dataset"><a class="header" href="#for-tmdb-dataset">For TMDB Dataset</a></h3>
+<p><a href="https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata">here</a></p>
+<p><img src="dataset/../images/dataset-one.png" alt="TMDB Dataset" /></p>
+<hr />
+<h3 id="for-movies-dataset"><a class="header" href="#for-movies-dataset">For Movies Dataset</a></h3>
+<p><a href="https://grouplens.org/datasets/movielens/latest/">here</a>.</p>
+<p>These datasets will change over time, and are not appropriate for reporting research results. We will keep the download links stable for automated downloads. We will not archive or make available previously released versions.</p>
+<p>Small: 100,000 ratings and 3,600 tag applications applied to 9,000 movies by 600 users. Last updated 9/2018.
+Full: 27,000,000 ratings and 1,100,000 tag applications applied to 58,000 movies by 280,000 users. Includes tag genome data with 14 million relevance scores across 1,100 tags. Last updated 9/2018.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="tmdb-dataset"><a class="header" href="#tmdb-dataset">TMDB Dataset</a></h1>
-<p><em>tmdb_5000_credits.csv</em>: contains the credits for the movies.</p>
-<pre><code>The first file contains the following features:-
-
-&gt; **movie_id** - A unique identifier for each movie.
-&gt; **cast** - The name of lead and supporting actors.
-&gt; **crew** - The name of Director, Editor, Composer, Writer etc.
-</code></pre>
 <ul>
+<li>
+<p><em>tmdb_5000_credits.csv</em>: contains the credits for the movies.</p>
+<p>The first file contains the following features:-</p>
+<blockquote>
+<p><strong>movie_id</strong> - A unique identifier for each movie.</p>
+<p><strong>cast</strong> - The name of lead and supporting actors.</p>
+<p><strong>crew</strong> - The name of Director, Editor, Composer, Writer etc.</p>
+</blockquote>
+</li>
 <li>
 <p><em>tmdb_5000_movies.csv</em>: contains the metadata for the movies.</p>
 <p>The second file has the following features:-</p>
 <blockquote>
-<p><strong>budget</strong> - The budget in which the movie was made.
-<strong>genre</strong> - The genre of the movie, Action, Comedy ,Thriller etc.
-<strong>homepage</strong> - A link to the homepage of the movie.
-<strong>id</strong> - This is infact the movie_id as in the first dataset.
-<strong>keywords</strong> - The keywords or tags related to the movie.
-<strong>original_language</strong> - The language in which the movie was made.
-<strong>original_title</strong> - The title of the movie before translation or adaptation.
-<strong>overview</strong> - A brief description of the movie.
-<strong>popularity</strong> - A numeric quantity specifying the movie popularity.
-<strong>production_companies</strong> - The production house of the movie.
-<strong>production_countries</strong> - The country in which it was produced.
-<strong>release_date</strong> - The date on which it was released.
-<strong>revenue</strong> - The worldwide revenue generated by the movie.
-<strong>runtime</strong> - The running time of the movie in minutes.
-<strong>status</strong> - &quot;Released&quot; or &quot;Rumored&quot;.
-<strong>tagline</strong> - Movie's tagline.
-<strong>title</strong> - Title of the movie.
-<strong>vote_average</strong> - average ratings the movie recieved.
-<strong>vote_count</strong> - the count of votes recieved.</p>
+<p><strong>budget</strong> - The budget in which the movie was made.</p>
+<p><strong>genre</strong> - The genre of the movie, Action, Comedy ,Thriller etc.</p>
+<p><strong>homepage</strong> - A link to the homepage of the movie.</p>
+<p><strong>id</strong> - This is infact the movie_id as in the first dataset.</p>
+<p><strong>keywords</strong> - The keywords or tags related to the movie.</p>
+<p><strong>original_language</strong> - The language in which the movie was made.</p>
+<p><strong>original_title</strong> - The title of the movie before translation or adaptation.</p>
+<p><strong>overview</strong> - A brief description of the movie.</p>
+<p><strong>popularity</strong> - A numeric quantity specifying the movie popularity.</p>
+<p><strong>production_companies</strong> - The production house of the movie.</p>
+<p><strong>production_countries</strong> - The country in which it was produced.</p>
+<p><strong>release_date</strong> - The date on which it was released.</p>
+<p><strong>revenue</strong> - The worldwide revenue generated by the movie.</p>
+<p><strong>runtime</strong> - The running time of the movie in minutes.</p>
+<p><strong>status</strong> - &quot;Released&quot; or &quot;Rumored&quot;.</p>
+<p><strong>tagline</strong> - Movie's tagline.</p>
+<p><strong>title</strong> - Title of the movie.</p>
+<p><strong>vote_average</strong> - average ratings the movie recieved.</p>
+<p><strong>vote_count</strong> - the count of votes recieved.</p>
 </blockquote>
 </li>
 </ul>
@@ -204,23 +226,24 @@
 Contains information on 45,000 movies featured in
 the Full MovieLens dataset. Features include posters,
 backdrops, budget, revenue, release dates,
-languages, production countries and companies.
-<strong>keywords.csv</strong>: Contains the movie plot keywords for our
+languages, production countries and companies.</p>
+<p><strong>keywords.csv</strong>: Contains the movie plot keywords for our
 MovieLens movies. Available in the form of
-a stringified JSON Object.
-<strong>credits.csv</strong>: Consists of Cast and Crew Information
+a stringified JSON Object.</p>
+<p><strong>credits.csv</strong>: Consists of Cast and Crew Information
 for all our movies. Available in the form of
-a stringified JSON Object.
-<strong>links.csv</strong>: The file that contains the TMDB and IMDB IDs
-of all the movies featured in the Full MovieLens dataset.
-<strong>links_small.csv</strong>: Contains the TMDB and IMDB IDs of
-a small subset of 9,000 movies of the Full Dataset.
-<strong>ratings_small.csv</strong>: The subset of 100,000 ratings from 700 users on 9,000 movies.</p>
+a stringified JSON Object.</p>
+<p><strong>links.csv</strong>: The file that contains the TMDB and IMDB IDs
+of all the movies featured in the Full MovieLens dataset.</p>
+<p><strong>links_small.csv</strong>: Contains the TMDB and IMDB IDs of
+a small subset of 9,000 movies of the Full Dataset.</p>
+<p><strong>ratings_small.csv</strong>: The subset of 100,000 ratings from 700 users on 9,000 movies.</p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="simple-recommenders"><a class="header" href="#simple-recommenders">Simple Recommenders</a></h1>
 <p>Simple recommenders are basic systems that recommend the top items based on a certain metric or score. In this section, you will build a simplified clone of IMDB Top 250 Movies using metadata collected from IMDB.</p>
-<pre><code>Note: The IMDB Dataset was removed due to a DMCA violation. We are now using the TMDb dataset.
-</code></pre>
+<blockquote>
+<p>Note: The IMDB Dataset was removed due to a DMCA violation. We are now using the TMDb dataset.</p>
+</blockquote>
 <h2 id="idea-to-solve-the-problem"><a class="header" href="#idea-to-solve-the-problem"><strong>Idea to Solve the Problem</strong></a></h2>
 <p>One of the most basic metrics one can think of is the ranking to decide which top 250 movies are based on their respective ratings.</p>
 <p>However, using a rating as a metric has a few caveats:</p>
@@ -242,7 +265,7 @@ a small subset of 9,000 movies of the Full Dataset.
 So, I'll be using IMDB's weighted rating (wr) which is given as :-</p>
 <h2 id="weighted-average-rating"><a class="header" href="#weighted-average-rating"><strong>Weighted Average Rating</strong></a></h2>
 <p>We can use the Weightied Rating (WR) as a metric to rank our movies. The WR is a combination of the following:</p>
-<p><img src=".%5Cimages%5Cweighted_rating.png" alt="" /></p>
+<p><img src="../images/weighted_rating.png" alt="weighted-rating" /></p>
 <p>where,</p>
 <ul>
 <li>v is the number of votes for the movie</li>
@@ -254,7 +277,7 @@ So, I'll be using IMDB's weighted rating (wr) which is given as :-</p>
 In other words, for a movie to be featured in the charts, it must have more votes than at least 90% of the movies on the list.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="content-based-filtering"><a class="header" href="#content-based-filtering">Content Based Filtering</a></h1>
 <p>In this recommender system the content of the movie (overview, cast, crew, keyword, tagline etc) is used to find its similarity with other movies. Then the movies that are most likely to be similar are recommended.</p>
-<p><img src="https://image.ibb.co/f6mDXU/conten.png" alt="" /></p>
+<p><img src="https://image.ibb.co/f6mDXU/conten.png" alt="content-based-flitering" /></p>
 <ol>
 <li>Plot Based</li>
 <li>Keyword Based</li>
@@ -274,7 +297,7 @@ Then compute Term Frequency-Inverse Document Frequency (TF-IDF) vectors for each
 <p>With this matrix in hand, we can now compute a similarity score. There are several candidates for this; such as the euclidean, the Pearson and the <a href="https://en.wikipedia.org/wiki/Cosine_similarity">cosine similarity scores</a>. There is no right answer to which score is the best. Different scores work well in different scenarios and it is often a good idea to experiment with different metrics.</p>
 <p>We will be using the cosine similarity to calculate a numeric quantity that denotes the similarity between two movies. We use the cosine similarity score since it is independent of magnitude and is relatively easy and fast to calculate. Mathematically, it is defined as follows:</p>
 <p>Mathematically, it is defined as follows:</p>
-<p><img src="types/./images/cosine_similarity.jpg" alt="" /></p>
+<p><img src="types/../images/cosine_similarity.jpg" alt="cosine-similarity" /></p>
 <h2 id="result"><a class="header" href="#result">Result</a></h2>
 <p>While our system has done a decent job of finding movies with similar plot descriptions, the quality of recommendations is not that great.</p>
 <p><em>&quot;The Dark Knight Rises&quot;</em> returns all Batman movies while it is more likely that the people who liked that movie are more inclined to enjoy other Christopher Nolan movies. This is something that cannot be captured by the present system.</p>
@@ -292,22 +315,22 @@ It is basically of two types:-</p>
 <ul>
 <li><strong>User based filtering</strong>-  These systems recommend products to a user that similar users have liked. For measuring the similarity between two users we can either use pearson correlation or cosine similarity.
 This filtering technique can be illustrated with an example. In the following matrixes, each row represents a user, while the columns correspond to different movies except the last one which records the similarity between that user and the target user. Each cell represents the rating that the user gives to that movie. Assume user E is the target.
-<img src="https://cdn-images-1.medium.com/max/1000/1*9NBFo4AUQABKfoUOpE3F8Q.png" alt="" /></li>
+<img src="https://cdn-images-1.medium.com/max/1000/1*9NBFo4AUQABKfoUOpE3F8Q.png" alt="userBasedFiltering-one" /></li>
 </ul>
 <p>Since user A and F do not share any movie ratings in common with user E, their similarities with user E are not defined in Pearson Correlation. Therefore, we only need to consider user B, C, and D. Based on Pearson Correlation, we can compute the following similarity.
-<img src="https://cdn-images-1.medium.com/max/1000/1*jZIMJzKM1hKTFftHfcSxRw.png" alt="" /></p>
+<img src="https://cdn-images-1.medium.com/max/1000/1*jZIMJzKM1hKTFftHfcSxRw.png" alt="userBasedFiltering-two" /></p>
 <p>From the above table we can see that user D is very different from user E as the Pearson Correlation between them is negative. He rated Me Before You higher than his rating average, while user E did the opposite. Now, we can start to fill in the blank for the movies that user E has not rated based on other users.
-<img src="https://cdn-images-1.medium.com/max/1000/1*9TC6BrfxYttJwiATFAIFBg.png" alt="" /></p>
+<img src="https://cdn-images-1.medium.com/max/1000/1*9TC6BrfxYttJwiATFAIFBg.png" alt="userBasedFiltering-three" /></p>
 <p>Although computing user-based CF is very simple, it suffers from several problems. One main issue is that users’ preference can change over time. It indicates that precomputing the matrix based on their neighboring users may lead to bad performance. To tackle this problem, we can apply item-based CF.</p>
 <ul>
 <li><strong>Item Based Collaborative Filtering</strong> - Instead of measuring the similarity between users, the item-based CF recommends items based on their similarity with the items that the target user rated. Likewise, the similarity can be computed with Pearson Correlation or Cosine Similarity. The major difference is that, with item-based collaborative filtering, we fill in the blank vertically, as oppose to the horizontal manner that user-based CF does. The following table shows how to do so for the movie Me Before You.
-<img src="https://cdn-images-1.medium.com/max/1000/1*LqFnWb-cm92HoMYBL840Ew.png" alt="" /></li>
+<img src="https://cdn-images-1.medium.com/max/1000/1*LqFnWb-cm92HoMYBL840Ew.png" alt="itemBasedFiltering-one" /></li>
 </ul>
 <p>It successfully avoids the problem posed by dynamic user preference as item-based CF is more static. However, several problems remain for this method. First, the main issue is <strong>scalability</strong>. The computation grows with both the customer and the product. The worst case complexity is O(mn) with m users and n items. In addition, <strong>sparsity</strong> is another concern. Take a look at the above table again. Although there is only one user that rated both Matrix and Titanic rated, the similarity between them is 1. In extreme cases, we can have millions of users and the similarity between two fairly different movies could be very high simply because they have similar rank for the only user who ranked them both.</p>
 <h2 id="single-value-decomposition"><a class="header" href="#single-value-decomposition"><strong>Single Value Decomposition</strong></a></h2>
 <p>One way to handle the scalability and sparsity issue created by CF is to leverage a <strong>latent factor model</strong> to capture the similarity between users and items. Essentially, we want to turn the recommendation problem into an optimization problem. We can view it as how good we are in predicting the rating for items given a user. One common metric is Root Mean Square Error (RMSE). <strong>The lower the RMSE, the better the performance</strong>.</p>
 <p>Now talking about latent factor you might be wondering what is it ?It is a broad idea which describes a property or concept that a user or an item have. For instance, for music, latent factor can refer to the genre that the music belongs to. SVD decreases the dimension of the utility matrix by extracting its latent factors. Essentially, we map each user and each item into a latent space with dimension r. Therefore, it helps us better understand the relationship between users and items as they become directly comparable. The below figure illustrates this idea.</p>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*GUw90kG2ltTd2k_iv3Vo0Q.png" alt="" /></p>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*GUw90kG2ltTd2k_iv3Vo0Q.png" alt="singleValueDecomposition-one" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="check-out-the-web-app-gui"><a class="header" href="#check-out-the-web-app-gui">Check Out the Web APP GUI</a></h1>
 <p>click on the owl ➡️ <strong>ORIGINAL</strong></p>
 <p><a title="link to deployeyd app" href="https://remmi.herokuapp.com/"><img src="https://i.redd.it/x2g5zvb396h41.jpg" height=100 style="float:right;padding: 0px 250px;"/>
@@ -338,12 +361,15 @@ SOFTWARE.</p>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
             </nav>
 
         </div>
@@ -364,21 +390,29 @@ SOFTWARE.</p>
                 socket.close();
             }
         </script>
+
+
+
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
+
+
         <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
         <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
+
         <script type="text/javascript">
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
+
     </body>
 </html>
