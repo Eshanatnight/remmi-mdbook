@@ -23,3 +23,17 @@ Which contain the following files:-
 > a small subset of 9,000 movies of the Full Dataset.
 >
 > **ratings_small.csv**: The subset of 100,000 ratings from 700 users on 9,000 movies.
+
+## Ratings Dataset
+
+Which contain the following :-
+> **userId** is the user id of the user who rated the movie.
+> **movieId** is the movie id of the movie that was rated.
+> **rating** is the rating given to the movie by the user.
+
+## Movies Dataset
+
+Which contains the following :-
+> **movieID** is the movie id of the movie that was rated.
+> **title** is the title of the movie.
+> **genres** is the genre of the movie.
